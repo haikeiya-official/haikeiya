@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>はいけいや！— 配信者向け無料AI背景素材</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fffbf5;
+    --yellow: #FFE135;
+    --pink: #FF6B9D;
+    --mint: #4ECDC4;
+    --coral: #FF6B6B;
+    --lavender: #C77DFF;
+    --navy: #1a1a2e;
+    --text: #1a1a2e;
+    --muted: #888;
+    --card-bg: #fff;
+    --border-r: 20px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ドット背景 */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, #e0d8cc 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* ヘッダー */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--yellow);
+    border-bottom: 3px solid var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 36px;
+    height: 68px;
+  }
+
+  .logo {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-badge {
+    background: var(--navy);
+    color: var(--yellow);
+    font-size: 9px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+  }
+
+  nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .nav-pill {
+    background: transparent;
+    border: 2px solid var(--navy);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all 0.18s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .nav-pill:hover, .nav-pill.active {
+    background: var(--navy);
+    color: var(--yellow);
+  }
+
+  /* ヒーロー */
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: 64px 48px 56px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-left {}
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--mint);
+    border: 2.5px solid var(--navy);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    animation: bounceIn 0.5s ease both;
+  }
+  .hero-tag::before { content: '✨'; }
+
+  .hero h1 {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight: 900;
+    font-size: clamp(44px, 6vw, 80px);
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 20px;
+    animation: fadeUp 0.55s 0.1s ease both;
+  }
+
+  .hero h1 mark {
+    background: var(--yellow);
+    border-radius: 6px;
+    padding: 0 6px;
+    color: var(--navy);
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 mark::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 4px; right: 4px;
+    height: 4px;
+    background: var(--navy);
+    border-radius: 2px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 32px;
+    max-width: 460px;
+    animation: fadeUp 0.55s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.55s 0.28s ease both;
+  }
+
+  .btn-main {
+    background: var(--pink);
+    color: #fff;
+    border: 3px solid var(--navy);
+    border-radius: 100px;
+    padding: 14px 32px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.18s;
+    box-shadow: 4px 4px 0 var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-main:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--navy); }
+  .btn-main:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--navy); }
+
+  .btn-sub {
+    background: var(--card-bg);
+    color: var(--navy);
+    border: 3px solid var(--navy);
+    border-radius: 100px;
+    padding: 14px 28px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+    box-shadow: 4px 4px 0 var(--navy);
+  }
+  .btn-sub:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--navy); background: var(--bg); }
+
+  /* ヒーロー右 — 統計バッジ群 */
+  .hero-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    animation: fadeUp 0.55s 0.35s ease both;
+  }
+
+  .stat-card {
+    background: var(--card-bg);
+    border: 3px solid var(--navy);
+    border-radius: var(--border-r);
+    padding: 20px 28px;
+    text-align: center;
+    box-shadow: 5px 5px 0 var(--navy);
+    min-width: 160px;
+  }
+  .stat-card .num {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--pink);
+  }
+  .stat-card .unit { font-size: 16px; color: var(--navy); }
+  .stat-card .label { font-size: 11px; color: var(--muted); font-weight: 700; margin-top: 4px; }
+
+  .stat-card.mint .num { color: var(--mint); }
+  .stat-card.lav .num { color: var(--lavender); }
+
+  /* マーキー帯 */
+  .marquee-bar {
+    position: relative;
+    z-index: 1;
+    background: var(--navy);
+    border-top: 3px solid var(--navy);
+    border-bottom: 3px solid var(--navy);
+    overflow: hidden;
+    padding: 12px 0;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    animation: marquee 18s linear infinite;
+    width: max-content;
+  }
+  .marquee-item {
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--yellow);
+    padding: 0 28px;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .marquee-dot { color: var(--pink); font-size: 18px; line-height: 1; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ギャラリー */
+  .gallery-section {
+    position: relative;
+    z-index: 1;
+    padding: 60px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .section-title {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* カテゴリタブ */
+  .cat-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .cat-tab {
+    background: var(--card-bg);
+    border: 2.5px solid var(--navy);
+    border-radius: 100px;
+    padding: 7px 18px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all 0.15s;
+    box-shadow: 3px 3px 0 var(--navy);
+  }
+  .cat-tab:hover, .cat-tab.active {
+    background: var(--navy);
+    color: var(--yellow);
+    transform: translate(-1px,-1px);
+    box-shadow: 4px 4px 0 #555;
+  }
+
+  /* カードグリッド */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  .bg-card {
+    background: var(--card-bg);
+    border: 3px solid var(--navy);
+    border-radius: var(--border-r);
+    overflow: hidden;
+    box-shadow: 5px 5px 0 var(--navy);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .bg-card:hover {
+    transform: translate(-3px,-3px);
+    box-shadow: 8px 8px 0 var(--navy);
+  }
+
+  .card-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* プレースホルダー */
+  .ph { width:100%; height:100%; }
+  .ph-a { background: linear-gradient(135deg,#0a1628,#1a3a6a,#0d1f3c); }
+  .ph-b { background: linear-gradient(135deg,#1a0a28,#4a1060,#0e0618); }
+  .ph-c { background: linear-gradient(135deg,#0a2010,#1a5030,#081408); }
+  .ph-d { background: linear-gradient(135deg,#281008,#602010,#180608); }
+  .ph-e { background: linear-gradient(135deg,#201040,#503090,#100820); }
+  .ph-f { background: linear-gradient(135deg,#102028,#204860,#080e14); }
+
+  .ph::after {
+    content: '🖼️';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    opacity: 0.15;
+  }
+
+  .card-dl-btn {
+    position: absolute;
+    bottom: 10px; right: 10px;
+    background: var(--yellow);
+    border: 2px solid var(--navy);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--navy);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.2s;
+    box-shadow: 2px 2px 0 var(--navy);
+  }
+  .bg-card:hover .card-dl-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-info {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-name {
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--navy);
+  }
+  .card-genre {
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--bg);
+    border: 2px solid var(--navy);
+    border-radius: 100px;
+    padding: 3px 10px;
+    color: var(--navy);
+  }
+
+  /* フィーチャー */
+  .features-section {
+    position: relative;
+    z-index: 1;
+    background: var(--navy);
+    border-top: 3px solid var(--navy);
+    padding: 72px 48px;
+  }
+
+  .features-section .section-title {
+    color: var(--yellow);
+    margin-bottom: 40px;
+    justify-content: center;
+    font-size: 32px;
+  }
+
+  .feat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .feat-card {
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.12);
+    border-radius: var(--border-r);
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .feat-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+  }
+
+  .feat-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .feat-card h3 {
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+  .feat-card p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* フッター */
+  footer {
+    position: relative;
+    z-index: 1;
+    background: var(--yellow);
+    border-top: 3px solid var(--navy);
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  footer .logo { font-size: 22px; }
+  footer p { font-size: 11px; color: #555; font-weight: 700; }
+
+  /* アニメーション */
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(20px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+  @keyframes bounceIn {
+    0%   { opacity:0; transform: scale(0.8); }
+    70%  { transform: scale(1.05); }
+    100% { opacity:1; transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header>
+  <div class="logo">
+    はいけいや！
+    <span class="logo-badge">FREE</span>
+  </div>
+  <nav>
+    <a href="#" class="nav-pill">ギャラリー</a>
+    <a href="#" class="nav-pill">使い方</a>
+    <a href="#" class="nav-pill active">無料DL ↓</a>
+  </nav>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">配信者向け・完全無料・商用OK</div>
+    <h1>配信の背景、<br><mark>全部ここで</mark><br>解決できる。</h1>
+    <p class="hero-desc">
+      TikTok・YouTube・ゲーム配信に使えるAI生成背景を<strong>無料で配布</strong>しています。<br>
+      商用利用OK・加工自由・クレジット不要。<br>
+      ダウンロードしてそのまま使えます！
+    </p>
+    <div class="hero-actions">
+      <button class="btn-main">🎨 背景を無料でDLする</button>
+      <button class="btn-sub">使い方を見る</button>
+    </div>
+  </div>
+
+  <div class="hero-badges">
+    <div class="stat-card">
+      <div class="num">500<span class="unit">+</span></div>
+      <div class="label">🖼️ 背景素材を無料公開</div>
+    </div>
+    <div class="stat-card mint">
+      <div class="num">0<span class="unit">円</span></div>
+      <div class="label">💸 完全無料・登録不要</div>
+    </div>
+    <div class="stat-card lav">
+      <div class="num">OK</div>
+      <div class="label">✅ 商用・加工・配信すべて可</div>
+    </div>
+  </div>
+</section>
+
+<!-- マーキー -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <!-- 2セット繰り返してループ -->
+    <div class="marquee-item">リミナルスペース <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">サイバーパンク <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">ファンタジー <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">和風・ジャパネスク <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">自然・風景 <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">ゲーム配信向け <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">VTuber向け <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">雑談配信向け <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">リミナルスペース <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">サイバーパンク <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">ファンタジー <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">和風・ジャパネスク <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">自然・風景 <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">ゲーム配信向け <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">VTuber向け <span class="marquee-dot">★</span></div>
+    <div class="marquee-item">雑談配信向け <span class="marquee-dot">★</span></div>
+  </div>
+</div>
+
+<!-- ギャラリー -->
+<section class="gallery-section">
+  <div class="section-header">
+    <div class="section-title">🖼️ 素材ギャラリー</div>
+    <a href="#" class="nav-pill">全部見る →</a>
+  </div>
+
+  <div class="cat-tabs">
+    <button class="cat-tab active">すべて</button>
+    <button class="cat-tab">🌀 リミナル</button>
+    <button class="cat-tab">⚡ サイバーパンク</button>
+    <button class="cat-tab">🌿 ファンタジー</button>
+    <button class="cat-tab">🌸 和風</button>
+    <button class="cat-tab">🌄 自然・風景</button>
+  </div>
+
+  <div class="card-grid">
+    <div class="bg-card">
+      <div class="card-thumb">
+        <div class="ph ph-a"></div>
+        <button class="card-dl-btn">⬇ 無料DL</button>
+      </div>
+      <div class="card-info">
+        <div class="card-name">深夜の廊下</div>
+        <div class="card-genre">🌀 リミナル</div>
+      </div>
+    </div>
+
+    <div class="bg-card">
+      <div class="card-thumb">
+        <div class="ph ph-b"></div>
+        <button class="card-dl-btn">⬇ 無料DL</button>
+      </div>
+      <div class="card-info">
+        <div class="card-name">ネオン路地</div>
+        <div class="card-genre">⚡ サイバー</div>
+      </div>
+    </div>
+
+    <div class="bg-card">
+      <div class="card-thumb">
+        <div class="ph ph-c"></div>
+        <button class="card-dl-btn">⬇ 無料DL</button>
+      </div>
+      <div class="card-info">
+        <div class="card-name">古の森</div>
+        <div class="card-genre">🌿 ファンタジー</div>
+      </div>
+    </div>
+
+    <div class="bg-card">
+      <div class="card-thumb">
+        <div class="ph ph-d"></div>
+        <button class="card-dl-btn">⬇ 無料DL</button>
+      </div>
+      <div class="card-info">
+        <div class="card-name">夕暮れの社</div>
+        <div class="card-genre">🌸 和風</div>
+      </div>
+    </div>
+
+    <div class="bg-card">
+      <div class="card-thumb">
+        <div class="ph ph-e"></div>
+        <button class="card-dl-btn">⬇ 無料DL</button>
+      </div>
+      <div class="card-info">
+        <div class="card-name">宇宙の回廊</div>
+        <div class="card-genre">⚡ サイバー</div>
+      </div>
+    </div>
+
+    <div class="bg-card">
+      <div class="card-thumb">
+        <div class="ph ph-f"></div>
+        <button class="card-dl-btn">⬇ 無料DL</button>
+      </div>
+      <div class="card-info">
+        <div class="card-name">雨の海辺</div>
+        <div class="card-genre">🌄 自然</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- フィーチャー -->
+<section class="features-section">
+  <div class="section-title">なんで無料なの？🤔</div>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <span class="feat-icon">🎮</span>
+      <h3>配信者が作ってます</h3>
+      <p>実際にTikTok LIVEをやっている配信者が「こんな背景ほしい！」を形にしました。使いやすさにこだわってます。</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">✅</span>
+      <h3>商用利用・加工OK</h3>
+      <p>配信・サムネ・グッズ、なんにでも使ってOK。クレジット表記もいりません。ガンガン使ってください！</p>
+    </div>
+    <div class="feat-card">
+      <span class="feat-icon">🆕</span>
+      <h3>毎月追加してます</h3>
+      <p>月ごとに新しいテーマの背景を追加予定。お気に入りジャンルのリクエストも大歓迎！</p>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="logo">はいけいや！<span class="logo-badge">FREE</span></div>
+  <p>© 2025 はいけいや！ — 配信者向け無料AI背景素材サイト</p>
+  <p>Powered by Midjourney</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.cat-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
