@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -713,12 +712,11 @@
 
     grid.innerHTML = list.map(img => {
       const genre = CATS[img.cat] || "🖼️ その他";
-      const f = encodeURIComponent(img.file);
       return `
         <div class="bg-card">
           <div class="card-thumb">
-            <img src="${f}" alt="${img.name}" loading="lazy">
-            <a href="${f}" download class="card-dl-btn">⬇ 無料DL</a>
+            <img src="${img.file}" alt="${img.name}" loading="lazy">
+            <a href="${img.file}" download class="card-dl-btn">⬇ 無料DL</a>
           </div>
           <div class="card-info">
             <div class="card-name">${img.name}</div>
