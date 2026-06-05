@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>はいけいや！— 配信者向け無料AI背景素材</title>
+<meta name="description" content="TikTok・YouTube・ゲーム配信に使えるAI生成の背景素材を完全無料で配布。商用利用OK・加工自由・クレジット不要。リミナルスペースなど高品質な背景をダウンロードしてそのまま使えます。">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -21,6 +23,8 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
 
   body {
     background: var(--bg);
@@ -189,6 +193,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    text-decoration: none;
   }
   .btn-main:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--navy); }
   .btn-main:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--navy); }
@@ -205,6 +210,8 @@
     cursor: pointer;
     transition: all 0.18s;
     box-shadow: 4px 4px 0 var(--navy);
+    text-decoration: none;
+    display: inline-block;
   }
   .btn-sub:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--navy); background: var(--bg); }
 
@@ -279,6 +286,7 @@
     padding: 60px 48px;
     max-width: 1200px;
     margin: 0 auto;
+    scroll-margin-top: 80px;
   }
 
   .section-header {
@@ -326,6 +334,11 @@
     transform: translate(-1px,-1px);
     box-shadow: 4px 4px 0 #555;
   }
+  .cat-tab .cat-count {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-left: 4px;
+  }
 
   /* カードグリッド */
   .card-grid {
@@ -353,26 +366,13 @@
     aspect-ratio: 16/9;
     position: relative;
     overflow: hidden;
+    background: #f0ece4;
   }
-
-  /* プレースホルダー */
-  .ph { width:100%; height:100%; }
-  .ph-a { background: linear-gradient(135deg,#0a1628,#1a3a6a,#0d1f3c); }
-  .ph-b { background: linear-gradient(135deg,#1a0a28,#4a1060,#0e0618); }
-  .ph-c { background: linear-gradient(135deg,#0a2010,#1a5030,#081408); }
-  .ph-d { background: linear-gradient(135deg,#281008,#602010,#180608); }
-  .ph-e { background: linear-gradient(135deg,#201040,#503090,#100820); }
-  .ph-f { background: linear-gradient(135deg,#102028,#204860,#080e14); }
-
-  .ph::after {
-    content: '🖼️';
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    opacity: 0.15;
+  .card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .card-dl-btn {
@@ -389,6 +389,7 @@
     transform: translateY(6px);
     transition: all 0.2s;
     box-shadow: 2px 2px 0 var(--navy);
+    text-decoration: none;
   }
   .bg-card:hover .card-dl-btn {
     opacity: 1;
@@ -414,6 +415,15 @@
     border-radius: 100px;
     padding: 3px 10px;
     color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .gallery-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 48px 0;
+    color: var(--muted);
+    font-weight: 700;
   }
 
   /* フィーチャー */
@@ -423,6 +433,7 @@
     background: var(--navy);
     border-top: 3px solid var(--navy);
     padding: 72px 48px;
+    scroll-margin-top: 70px;
   }
 
   .features-section .section-title {
@@ -487,6 +498,12 @@
   footer .logo { font-size: 22px; }
   footer p { font-size: 11px; color: #555; font-weight: 700; }
 
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-badges { flex-direction: row; flex-wrap: wrap; }
+    .feat-grid { grid-template-columns: 1fr; }
+  }
+
   /* アニメーション */
   @keyframes fadeUp {
     from { opacity:0; transform: translateY(20px); }
@@ -508,9 +525,9 @@
     <span class="logo-badge">FREE</span>
   </div>
   <nav>
-    <a href="#" class="nav-pill">ギャラリー</a>
-    <a href="#" class="nav-pill">使い方</a>
-    <a href="#" class="nav-pill active">無料DL ↓</a>
+    <a href="#gallery" class="nav-pill">ギャラリー</a>
+    <a href="#features" class="nav-pill">使い方</a>
+    <a href="#gallery" class="nav-pill active">無料DL ↓</a>
   </nav>
 </header>
 
@@ -525,14 +542,14 @@
       ダウンロードしてそのまま使えます！
     </p>
     <div class="hero-actions">
-      <button class="btn-main">🎨 背景を無料でDLする</button>
-      <button class="btn-sub">使い方を見る</button>
+      <a href="#gallery" class="btn-main">🎨 背景を無料でDLする</a>
+      <a href="#features" class="btn-sub">使い方を見る</a>
     </div>
   </div>
 
   <div class="hero-badges">
     <div class="stat-card">
-      <div class="num">500<span class="unit">+</span></div>
+      <div class="num" id="statCount">0<span class="unit">枚</span></div>
       <div class="label">🖼️ 背景素材を無料公開</div>
     </div>
     <div class="stat-card mint">
@@ -570,249 +587,20 @@
 </div>
 
 <!-- ギャラリー -->
-<section class="gallery-section">
+<section class="gallery-section" id="gallery">
   <div class="section-header">
     <div class="section-title">🖼️ 素材ギャラリー</div>
-    <a href="#" class="nav-pill">全部見る →</a>
   </div>
 
-  <div class="cat-tabs">
-    <button class="cat-tab active">すべて</button>
-    <button class="cat-tab">🌀 リミナル</button>
-    <button class="cat-tab">⚡ サイバーパンク</button>
-    <button class="cat-tab">🌿 ファンタジー</button>
-    <button class="cat-tab">🌸 和風</button>
-    <button class="cat-tab">🌄 自然・風景</button>
-  </div>
+  <!-- カテゴリタブ（JSで自動生成） -->
+  <div class="cat-tabs" id="catTabs"></div>
 
-  <div class="card-grid">
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="プール.png" alt="深夜のプール" style="width:100%;height:100%;object-fit:cover;">
-        <a href="プール.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">深夜のプール</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="ホテル.png" alt="ホテルの廊下" style="width:100%;height:100%;object-fit:cover;">
-        <a href="ホテル.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">ホテルの廊下</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="ホテル2.png" alt="ホテルの廊下2" style="width:100%;height:100%;object-fit:cover;">
-        <a href="ホテル2.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">ホテルの廊下 ver.2</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="ホテル3.png" alt="ホテルの廊下3" style="width:100%;height:100%;object-fit:cover;">
-        <a href="ホテル3.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">ホテルの廊下 ver.3</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="地下駐車場.png" alt="地下駐車場" style="width:100%;height:100%;object-fit:cover;">
-        <a href="地下駐車場.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">地下駐車場</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="地下駐車場2.png" alt="地下駐車場2" style="width:100%;height:100%;object-fit:cover;">
-        <a href="地下駐車場2.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">地下駐車場 ver.2</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="地下駐車場3.png" alt="地下駐車場3" style="width:100%;height:100%;object-fit:cover;">
-        <a href="地下駐車場3.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">地下駐車場 ver.3</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃プール.png" alt="廃プール" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃プール.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃プール</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃プール2.png" alt="廃プール2" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃プール2.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃プール ver.2</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃プール3.png" alt="廃プール3" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃プール3.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃プール ver.3</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃プール4.png" alt="廃プール4" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃プール4.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃プール ver.4</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃モール.png" alt="廃モール" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃モール.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃モール</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃モール2.png" alt="廃モール2" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃モール2.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃モール ver.2</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="地下駐車場.png" alt="地下駐車場" style="width:100%;height:100%;object-fit:cover;">
-        <a href="地下駐車場.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">地下駐車場</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="地下駐車場2.png" alt="地下駐車場2" style="width:100%;height:100%;object-fit:cover;">
-        <a href="地下駐車場2.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">地下駐車場 ver.2</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="地下駐車場3.png" alt="地下駐車場3" style="width:100%;height:100%;object-fit:cover;">
-        <a href="地下駐車場3.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">地下駐車場 ver.3</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃プール.png" alt="廃プール" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃プール.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃プール</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃プール2.png" alt="廃プール2" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃プール2.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃プール ver.2</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃プール3.png" alt="廃プール3" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃プール3.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃プール ver.3</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-    <div class="bg-card">
-      <div class="card-thumb">
-        <img src="廃プール4.png" alt="廃プール4" style="width:100%;height:100%;object-fit:cover;">
-        <a href="廃プール4.png" download class="card-dl-btn">⬇ 無料DL</a>
-      </div>
-      <div class="card-info">
-        <div class="card-name">廃プール ver.4</div>
-        <div class="card-genre">🌀 リミナル</div>
-      </div>
-    </div>
-
-  </div>
+  <!-- カードグリッド（JSで自動生成） -->
+  <div class="card-grid" id="cardGrid"></div>
 </section>
 
 <!-- フィーチャー -->
-<section class="features-section">
+<section class="features-section" id="features">
   <div class="section-title">なんで無料なの？🤔</div>
   <div class="feat-grid">
     <div class="feat-card">
@@ -840,13 +628,108 @@
   <p>Powered by Midjourney</p>
 </footer>
 
+<!-- ===================================================================
+     画像データ — ★ここだけ編集すればOK★
+     新しい背景を追加するときは下の IMAGES 配列に1行足すだけ。
+       file : 画像ファイル名（index.htmlと同じ場所に置く）
+       name : ギャラリーに表示する名前
+       cat  : カテゴリ（liminal / cyber / fantasy / japan / nature）
+     一番上に書いたものがギャラリーの先頭（新着）に表示されます。
+==================================================================== -->
 <script>
-  document.querySelectorAll('.cat-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  // カテゴリの定義（タブの表示名）
+  const CATS = {
+    liminal: "🌀 リミナル",
+    cyber:   "⚡ サイバーパンク",
+    fantasy: "🌿 ファンタジー",
+    japan:   "🌸 和風",
+    nature:  "🌄 自然・風景",
+  };
+
+  // 画像一覧（★ここに追記していく★）
+  const IMAGES = [
+    { file: "プール.png",       name: "深夜のプール",        cat: "liminal" },
+    { file: "ホテル.png",       name: "ホテルの廊下",        cat: "liminal" },
+    { file: "ホテル2.png",      name: "ホテルの廊下 ver.2",  cat: "liminal" },
+    { file: "ホテル3.png",      name: "ホテルの廊下 ver.3",  cat: "liminal" },
+    { file: "地下駐車場.png",   name: "地下駐車場",          cat: "liminal" },
+    { file: "地下駐車場2.png",  name: "地下駐車場 ver.2",    cat: "liminal" },
+    { file: "地下駐車場3.png",  name: "地下駐車場 ver.3",    cat: "liminal" },
+    { file: "廃プール.png",     name: "廃プール",            cat: "liminal" },
+    { file: "廃プール2.png",    name: "廃プール ver.2",      cat: "liminal" },
+    { file: "廃プール3.png",    name: "廃プール ver.3",      cat: "liminal" },
+    { file: "廃プール4.png",    name: "廃プール ver.4",      cat: "liminal" },
+    { file: "廃モール.png",     name: "廃モール",            cat: "liminal" },
+    { file: "廃モール2.png",    name: "廃モール ver.2",      cat: "liminal" },
+  ];
+
+  // ===== 以下は編集不要 =====
+
+  const grid = document.getElementById("cardGrid");
+  const tabs = document.getElementById("catTabs");
+  let currentCat = "all";
+
+  // 枚数バッジを更新
+  document.getElementById("statCount").innerHTML =
+    IMAGES.length + '<span class="unit">枚</span>';
+
+  // カテゴリごとの枚数を数える
+  function countByCat(cat) {
+    return cat === "all"
+      ? IMAGES.length
+      : IMAGES.filter(img => img.cat === cat).length;
+  }
+
+  // タブを生成（「すべて」＋実際に画像があるカテゴリのみ）
+  function buildTabs() {
+    const used = ["all", ...Object.keys(CATS).filter(c => countByCat(c) > 0)];
+    tabs.innerHTML = used.map(cat => {
+      const label = cat === "all" ? "すべて" : CATS[cat];
+      const active = cat === currentCat ? " active" : "";
+      return `<button class="cat-tab${active}" data-cat="${cat}">${label}` +
+             `<span class="cat-count">${countByCat(cat)}</span></button>`;
+    }).join("");
+
+    tabs.querySelectorAll(".cat-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentCat = btn.dataset.cat;
+        tabs.querySelectorAll(".cat-tab").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderCards();
+      });
     });
-  });
+  }
+
+  // カードを描画
+  function renderCards() {
+    const list = currentCat === "all"
+      ? IMAGES
+      : IMAGES.filter(img => img.cat === currentCat);
+
+    if (list.length === 0) {
+      grid.innerHTML = `<div class="gallery-empty">このカテゴリの背景は準備中です🛠️</div>`;
+      return;
+    }
+
+    grid.innerHTML = list.map(img => {
+      const genre = CATS[img.cat] || "🖼️ その他";
+      const f = encodeURIComponent(img.file);
+      return `
+        <div class="bg-card">
+          <div class="card-thumb">
+            <img src="${f}" alt="${img.name}" loading="lazy">
+            <a href="${f}" download class="card-dl-btn">⬇ 無料DL</a>
+          </div>
+          <div class="card-info">
+            <div class="card-name">${img.name}</div>
+            <div class="card-genre">${genre}</div>
+          </div>
+        </div>`;
+    }).join("");
+  }
+
+  buildTabs();
+  renderCards();
 </script>
 </body>
 </html>
